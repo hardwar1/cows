@@ -3,8 +3,7 @@
 @import "cows.scss";
 @import "../components/bem-blocks/**/*.scss";
 
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 /*========= burger =========*/
 
@@ -24,7 +23,7 @@
   &__line,
   &::after,
   &::before {
-    content: '';
+    content: "";
     height: 2px;
     width: 35px;
     position: absolute;
@@ -49,12 +48,12 @@
       left: 50%;
       transform: translate(-50%, -50%) rotate(45deg);
     }
-  
+
     &::after {
       left: 50%;
       transform: translate(-50%, -50%) rotate(315deg);
     }
-  
+
     &::before {
       opacity: 0;
     }
@@ -183,8 +182,10 @@
     color: white;
   }
 }
+
 /*========= /cow-btn =========*/
 /*========= cows =========*/
+
 .cows {
   filter: grayscale(100%);
   background-size: cover;
@@ -195,7 +196,6 @@
   padding-bottom: 60px;
   text-align: center;
   transition: background-image 0.8s;
-  
 
   &__wrapper {
     padding-top: 5px;
@@ -345,7 +345,6 @@
 }
 
 /*========= /cows =========*/
-
 /*========= МОДАЛки =========*/
 
 .modal {
@@ -377,7 +376,6 @@
   &.hide-block .modal__guts {
     padding: 20px 0 60px;
   }
-
 }
 
 .cows-popap {
@@ -416,10 +414,32 @@
   padding: 0;
 }
 
-
-
 // ========= footer ============
+.footer {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
 
+  &__link {
+    padding: 10px 0 10px 50px;
+    font-size: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
 
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 38px;
+      background-image: url(../images/sprite.svg#telegram);
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}
 
 // ========= /footer ============

@@ -103,7 +103,7 @@ body {
 .burger::after,
 .burger::before,
 .burger__line {
-  content: '';
+  content: "";
   height: 2px;
   width: 35px;
   position: absolute;
@@ -463,6 +463,35 @@ body {
   opacity: 0;
   width: 0;
   padding: 0;
+}
+
+.footer {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+}
+
+.footer__link {
+  padding: 10px 0 10px 50px;
+  font-size: 20px;
+  color: #fff;
+  background-color: rgba(0,0,0,.5);
+  position: relative;
+}
+
+.footer__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 50px;
+  height: 38px;
+  background-image: url(../images/sprite.svg#telegram);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 @media only screen and (max-width:992px) {

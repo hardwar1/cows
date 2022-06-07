@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
           }
           writeResult();
-
+          cowsBoard.value = '';
         } else {
           winGame()
         }
@@ -334,7 +334,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     // кнопка вызова мобильного меню
     let burger = qOne('.burger'),
-    mobileMenu = qOne('.header__menu');
+      mobileMenu = qOne('.header__menu');
 
     burger.addEventListener('click', function () {
       this.classList.toggle('burger--close');

@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       bulls,
       jsStartNew,
       counterShow = 0,
+      moveCounter = 0,
       concoctNumber;
 
     const
@@ -113,6 +114,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
       if (hideNum.length != 4) {
         hideNumber();
       }
+
+      moveCounter = 0;
     }
 
     function winGame() {
@@ -120,11 +123,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       answerPanelRight.innerHTML = answerPanelRight.innerHTML + `
       <div class="cows__text--win">Число отгадано!!</div>
+      <div class="cows__text--win">потрачено ходов ${moveCounter}</div>
       <button type="button" class="cow-btn js-start-new">Новая игра</button>`;
       scrollDown();
       hideNum = '';
       answerPanelLeft.innerHTML = answerPanelLeft.innerHTML + `
       <div class="cows__text--win">Число отгадано!!</div>
+      <div class="cows__text--win">потрачено ходов ${moveCounter}</div>
+
       <button type="button" class="cow-btn js-start-new">Новая игра</button>`;
       scrollDown();
       startsBtns();
@@ -134,6 +140,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       }
       jsLose.setAttribute('disabled', true);
       conceiveBtn.removeAttribute('disabled');
+      moveCounter = 0;
     }
 
     function loseGame(why = '(игрок сдался)') {
@@ -157,6 +164,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       conceiveBtn.removeAttribute('disabled');
 
       jsLose.setAttribute('disabled', true);
+      moveCounter = 0;
     }
 
     function startsBtns() {
@@ -196,6 +204,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
           </div>
         `;
         scrollDown();
+        moveCounter++;
       }
 
       let rowsNumber = qAll('.cows__answer-row');

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Игра Быки коровы</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" sizes="192x192" href="images/favicon/android-chrome-192x192.png">
+  <link rel="icon" sizes="512x512" href="images/favicon/android-chrome-512x512.png">
+  <link rel="icon" sizes="16x16" href="images/favicon/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" href="images/favicon/favicon-32x32.png" >
+  <link rel="apple-touch-icon"  sizes="" href="images/favicon/apple-touch-icon.png" >
+  <link rel="stylesheet" href="css/libs.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <header class="header">
+  <div class="container">
+    <nav class="header__nav">
+      <button type="button" class="cow-btn js-start">Начать игру</button>
+      <div class="header__menu">
+        <button disabled type="button" class="cow-btn js-lose">Сдаться</button>
+        <button type="button" class="cow-btn js-rule">Правила</button>
+        <button type="button" class="cow-btn js-conceive">загадать вручную</button>
+        <a class="cow-btn cow-btn--link" href="pig.html">другие игры</a>
+      </div>
+      <button class="burger ">
+        <span class="burger__line"></span>
+        <span class="hide">открыть/закрыть меню</span>
+      </button>
+    </nav>
+  </div>
+</header>
+  <main>
+    <section class="cows" style="background-image: url(images/cows/3.jpg);">
+      <div class="container">
+        <div class="cows__wrapper">
+          <h1 class="cows__title">Игра "Быки Коровы"</h1>
+          <span class="cows__hide-num"></span>
+        </div>
+
+        <label>
+          <span class="hide">Введите четырехзначное число</span>
+          <input class="cows__board cows__board--main" name="board" type="number">
+        </label>
+
+        <div class="cows__body">
+          <div class="cows__answer-panel cows__answer-panel--left">
+            <div class="cows__answer-row">
+              <span class="cows__text cows__text--num">Число</span>
+              <span class="cows__text cows__text--bulls">Быки</span>
+              <span class="cows__text cows__text--cows">Коровы</span>
+            </div>
+          </div>
+
+          <div class="cows__control-panel">
+            <div class="cows__row">
+              <button class="cows__btn cow-btn" disabled type="button">1</button>
+              <button class="cows__btn cow-btn" disabled type="button">2</button>
+              <button class="cows__btn cow-btn" disabled type="button">3</button>
+            </div>
+            <div class="cows__row">
+              <button class="cows__btn cow-btn" disabled type="button">4</button>
+              <button class="cows__btn cow-btn" disabled type="button">5</button>
+              <button class="cows__btn cow-btn" disabled type="button">6</button>
+            </div>
+            <div class="cows__row">
+              <button class="cows__btn cow-btn" disabled type="button">7</button>
+              <button class="cows__btn cow-btn" disabled type="button">8</button>
+              <button class="cows__btn cow-btn" disabled type="button">9</button>
+            </div>
+            <div class="cows__row">
+              <button class="cows__btn cows__btn--enter cow-btn" disabled type="button">Enter</button>
+              <button class="cows__btn cow-btn" disabled type="button">0</button>
+              <button class="cows__btn cows__btn--bspace cow-btn" disabled type="button">Bspace</button>
+            </div>
+          </div>
+          <div class="cows__answer-panel cows__answer-panel--right hide-block">
+            <div class="cows__answer-row">
+              <span class="cows__text cows__text--num">Число </span>
+              <span class="cows__text cows__text--bulls">Быки</span>
+              <span class="cows__text cows__text--cows">Коровы</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="footer">
+  <div class="container">
+
+  </div>
+</footer>
+
+  <div class="overlay hide-block js-show"></div>
+  <div class="modal hide-block js-show" aria-hidden="true"
+    role="dialog">
+    <div class="modal__guts" role="document">
+      <h2 class="modal__title">Правила игры</h2>
+      <p>
+        Компьютер задумывает четыре различные цифры из 0,1,2,...9. Игрок делает ходы, чтобы узнать эти цифры и их
+        порядок. Каждый ход состоит из четырёх цифр, <strong>0 может стоять на первом месте</strong>. В ответ компьютер
+        показывает
+        число отгаданных цифр, стоящих на своих местах (число быков) и число отгаданных цифр, стоящих не на своих
+        местах (число коров).
+        <br><br>
+        Пример: <br>
+        Компьютер задумал 0834. Игрок сделал ход 8134. Компьютер ответил: 2 быка (цифры 3 и 4) и 1 корова (цифра 8).
+      </p>
+    </div>
+  </div>
+
+  <span class="cows-popap js-help hide-block js-show">
+    введите четырехзначное число состоящее из разных цифр
+  </span>
+
+  <div class="cows-popap js-concoct hide-block js-show">
+    введите четырехзначное число состоящее из разных цифр
+
+    <label>
+      <span class="hide">Введите четырехзначное число</span>
+      <input class="cows__board cows__board--concoct" type="number">
+    </label>
+
+    <button class="cow-btn cows__hide-btn" type="button">Загадать свое число</button>
+  </div>
+
+  <script src="js/libs.min.js"></script>
+<script src="js/main.min.js"></script>
+</body>

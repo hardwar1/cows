@@ -1,0 +1,425 @@
+@import "global/*.scss";
+
+@import "cows.scss";
+@import "../components/bem-blocks/**/*.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+/*========= burger =========*/
+
+.burger {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  background-color: #fff;
+  display: none;
+  margin-left: 10px;
+
+  @include max-w($md) {
+    display: block;
+  }
+
+  &__line,
+  &::after,
+  &::before {
+    content: '';
+    height: 2px;
+    width: 35px;
+    position: absolute;
+    left: 5px;
+    top: 11px;
+    background-color: #000;
+    transition: transform 0.4s, top 0.4s, opacity 0.3s, left 0.4s;
+  }
+
+  &::after {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &::before {
+    top: 33px;
+  }
+
+  &--close {
+    .burger__line {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  
+    &::after {
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(315deg);
+    }
+  
+    &::before {
+      opacity: 0;
+    }
+  }
+}
+
+/*========= /burger =========*/
+/*========= cows =========*/
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 55;
+
+  width: 100%;
+
+  font-weight: bold;
+  box-sizing: border-box;
+  padding: 5px 0;
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @include max-w($md) {
+    &__nav {
+      justify-content: flex-end;
+    }
+
+    &__menu {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding-top: 70px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      height: 100vh;
+      transition: transform 0.6s;
+      transform: translateX(200%) scale(0);
+
+      .cow-btn {
+        width: 80%;
+      }
+
+      &--show {
+        transform: translateX(-50%) scale(1);
+      }
+    }
+  }
+}
+
+/*========= cows =========*/
+/*========= cow-btn =========*/
+
+.cow-btn {
+  position: relative;
+  display: inline-block;
+  color: #777674;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: rgba(109, 41, 41, 0.5) 1px 1px, rgba(100, 100, 100, 0.3) 3px 7px 3px;
+  user-select: none;
+  padding: 1em 2em;
+  font-size: 16px;
+  outline: 0;
+  border-radius: 3px / 100%;
+  text-align: center;
+
+  @include max-w($md) {
+    padding: 0.8em 2em;
+  }
+
+  background-image: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0) 70%
+    ),
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 0) 20%,
+      rgba(255, 255, 255, 0) 90%,
+      rgba(255, 255, 255, 0.3)
+    ),
+    linear-gradient(to right, rgba(125, 125, 125, 1), rgba(255, 255, 255, 0.9) 45%, rgba(125, 125, 125, 0.5)),
+    linear-gradient(to right, rgba(125, 125, 125, 1), rgba(255, 255, 255, 0.9) 45%, rgba(125, 125, 125, 0.5)),
+    linear-gradient(to right, rgba(223, 190, 170, 1), rgba(255, 255, 255, 0.9) 45%, rgba(223, 190, 170, 0.5)),
+    linear-gradient(to right, rgba(223, 190, 170, 1), rgba(255, 255, 255, 0.9) 45%, rgba(223, 190, 170, 0.5));
+  background-repeat: no-repeat;
+  background-size: 200% 100%, auto, 100% 2px, 100% 2px, 100% 1px, 100% 1px;
+  background-position: 200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+  box-shadow: rgba(0, 0, 0, 0.5) 3px 10px 10px -10px;
+
+  &:focus {
+    box-shadow: 0 3px 7px 3px #000000;
+  }
+
+  &:hover {
+    transition: 0.5s linear;
+    background-position: -200% 0, 0 0, 0 0, 0 100%, 0 4px, 0 calc(100% - 4px);
+  }
+
+  &:active {
+    top: 1px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(134, 132, 132);
+  }
+
+  &--link {
+    color: white;
+  }
+}
+/*========= /cow-btn =========*/
+/*========= cows =========*/
+.cows {
+  filter: grayscale(100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  text-align: center;
+  transition: background-image 0.8s;
+  
+
+  &__wrapper {
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 30px;
+    background-color: #fff;
+    margin-bottom: 10px;
+
+    @include max-w($md) {
+      font-size: 24px;
+    }
+  }
+
+  &__hide-num {
+    height: 34px;
+    font-size: 26px;
+    margin-bottom: 10px;
+    display: block;
+    background-color: #fff;
+  }
+
+  &__board {
+    width: 100px;
+    margin: 0 auto 20px;
+    background-color: white;
+    border: 1px solid grey;
+    font-size: 20px;
+    padding: 5px 5px;
+    display: block;
+    outline: 0;
+    text-align: center;
+
+    &:focus {
+      box-shadow: 0 3px 7px 3px #000000;
+    }
+
+    &--concoct {
+      width: 90%;
+      margin-top: 15px;
+    }
+  }
+
+  &__hide-btn {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto 10px;
+  }
+
+  &__body {
+    width: 100%;
+    max-width: 718px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__answer-panel {
+    text-align: center;
+    background-color: #fff;
+    font-size: 200%;
+    padding: 10px;
+    height: 300px;
+    overflow-y: auto;
+    max-width: 223px;
+  }
+
+  &__answer-row {
+    display: flex;
+
+    &:not(:first-child) {
+      border-top: 1px solid #000;
+    }
+  }
+
+  &__text {
+    width: 33%;
+    &:not(:last-child) {
+      border-right: 1px solid #000;
+    }
+    padding: 5px;
+
+    &--win {
+      color: green;
+      font-size: 20px;
+      width: 100%;
+    }
+  }
+
+  &__control-panel {
+    background-color: white;
+    max-width: 275px;
+    padding: 10px;
+    width: 100%;
+    border-right: 1px solid #000;
+    border-left: 1px solid #000;
+
+    @include max-w($sm) {
+      display: none;
+    }
+  }
+
+  &__btn {
+    margin-bottom: 10px;
+
+    &.cows__btn--bspace {
+      padding: 12px;
+    }
+    &.cows__btn--enter {
+      padding: 16px;
+    }
+
+    &:focus {
+      box-shadow: 0 3px 7px 3px #000000;
+    }
+
+    &:disabled {
+      background-image: linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0) 30%,
+          rgba(255, 255, 255, 0.7),
+          rgba(255, 255, 255, 0) 70%
+        ),
+        linear-gradient(
+          to right,
+          rgba(255, 255, 255, 1),
+          rgba(175, 171, 171, 0.4) 20%,
+          rgba(188, 183, 183, 0.2) 90%,
+          rgba(255, 255, 255, 0.3)
+        ),
+        linear-gradient(to right, rgba(125, 125, 125, 1), rgba(195, 191, 191, 0.9) 45%, rgba(125, 125, 125, 0.5)),
+        linear-gradient(to right, rgba(125, 125, 125, 1), rgba(195, 191, 191, 0.9) 45%, rgba(125, 125, 125, 0.5)),
+        linear-gradient(to right, rgba(223, 190, 170, 1), rgba(195, 191, 191, 0.9) 45%, rgba(223, 190, 170, 0.5)),
+        linear-gradient(to right, rgba(223, 190, 170, 1), rgba(195, 191, 191, 0.9) 45%, rgba(223, 190, 170, 0.5));
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/*========= /cows =========*/
+
+/*========= МОДАЛки =========*/
+
+.modal {
+  transition: opacity 0.3s, width 0.2s, padding 0.2s;
+  width: 700px;
+  max-width: 100%;
+  height: 300px;
+  font-size: 18px;
+  max-height: 100%;
+  position: fixed;
+  color: #000;
+  overflow: hidden;
+
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+
+  &__guts {
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px 50px 60px 20px;
+    transition: padding 0.2s;
+  }
+
+  &.hide-block .modal__guts {
+    padding: 20px 0 60px;
+  }
+
+}
+
+.cows-popap {
+  display: inline-block;
+  background-color: #fff;
+  box-shadow: 0 0 10px #000;
+  width: 270px;
+  padding: 10px;
+  font-size: 20px;
+  position: fixed;
+  text-align: left;
+  left: 50%;
+  top: 250px;
+  transform: translateX(-50%);
+  z-index: 100;
+  overflow: hidden;
+  transition: opacity 0.4s, width 0.2s, padding 0.2s;
+}
+
+.overlay {
+  transition: opacity 0.3s, width 0.5s, padding 0.2s;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.hide-block {
+  opacity: 0;
+  width: 0;
+  padding: 0;
+}
+
+
+
+// ========= footer ============
+
+
+
+// ========= /footer ============

@@ -111,6 +111,10 @@ body {
 
 .telegram--black::before {
   height: 25px;
+  left: 50%;
+  -webkit-transform: translate(-128px,-50%);
+  -ms-transform: translate(-128px,-50%);
+  transform: translate(-128px,-50%);
   opacity: .4;
   background-image: url(../images/sprite.svg#telegram-black);
 }
@@ -543,7 +547,8 @@ body {
   }
 
   .header__menu .cow-btn {
-    width: 80%;
+    width: 85%;
+    padding: .8em 0;
   }
 
   .header__menu--show {

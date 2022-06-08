@@ -123,13 +123,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
       answerPanelRight.innerHTML = answerPanelRight.innerHTML + `
       <div class="cows__text--win">Число отгадано!!</div>
-      <div class="cows__text--win">потрачено ходов ${moveCounter}</div>
+      <div class="cows__text--win">потрачено ходов: ${moveCounter}</div>
       <button type="button" class="cow-btn js-start-new">Новая игра</button>`;
       scrollDown();
       hideNum = '';
       answerPanelLeft.innerHTML = answerPanelLeft.innerHTML + `
       <div class="cows__text--win">Число отгадано!!</div>
-      <div class="cows__text--win">потрачено ходов ${moveCounter}</div>
+      <div class="cows__text--win">потрачено ходов: ${moveCounter}</div>
 
       <button type="button" class="cow-btn js-start-new">Новая игра</button>`;
       scrollDown();

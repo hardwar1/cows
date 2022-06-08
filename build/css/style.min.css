@@ -469,6 +469,7 @@ body {
   position: fixed;
   bottom: 10px;
   left: 0;
+  z-index: 110;
 }
 
 .footer__link {
@@ -548,6 +549,18 @@ body {
 
   .cows__title {
     font-size: 24px;
+  }
+
+  .footer {
+    top: 11px;
+    bottom: unset;
+  }
+
+  .footer__link {
+    font-size: 0;
+    background-color: transparent;
+    height: 39px;
+    display: inline-block;
   }
 }
 

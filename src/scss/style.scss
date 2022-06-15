@@ -373,6 +373,75 @@
 }
 
 /*========= /cows =========*/
+
+// ========= contact-me ============
+
+.contact-me {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 55;
+  border-radius: 25px;
+  padding-left: 10px;
+  @include line-clamp();
+  transform: translateX(-100vw);
+  animation: contact-me 15s 0s 1 forwards;
+  transition: width 0.3s;
+
+  &__text {
+    font-size: 16px;
+    color: white;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    transform: translateY(-50%);
+    background-image: url(../images/sprite.svg#telegram);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+@keyframes contact-me {
+  0% {
+    transform: translateX(-100vw) scale(0);
+    
+  }
+
+  9% {
+    transform: translateX(0) scale(1);
+    width: 50px;
+  }
+
+  45% {
+    transform: translateX(0);
+    width: 270px;
+  }
+
+  85% {
+    transform: translateX(0);
+    width: 270px;
+  }
+
+  100% {
+    transform: translateX(0);
+    width: 50px;
+  }
+}
+
+// ========= /contact-me ============
+
+
 /*========= МОДАЛки =========*/
 
 .modal {
@@ -443,31 +512,3 @@
 }
 
 /*========= /МОДАЛки =========*/
-// ========= footer ============
-
-.footer {
-  position: fixed;
-  bottom: 10px;
-  left: 0;
-  z-index: 110;
-
-  @include max-w($md) {
-    top: 20px;
-    bottom: unset;
-  }
-
-  &__link {
-    padding: 10px 5px 10px 50px;
-    font-size: 20px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-
-    @include max-w($md) {
-      font-size: 0;
-      background-color: transparent;
-      height: 39px;
-    }
-  }
-}
-
-// ========= /footer ============

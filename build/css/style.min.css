@@ -429,6 +429,7 @@ body {
   z-index: 55;
   border-radius: 25px;
   padding-left: 10px;
+  font-size: 16px;
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -438,9 +439,6 @@ body {
   transform: translateX(-100vw);
   -webkit-animation: 15s forwards contact-me;
   animation: 15s forwards contact-me;
-  -webkit-transition: width .3s;
-  -o-transition: width .3s;
-  transition: width .3s;
 }
 
 .contact-me__text {

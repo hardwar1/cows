@@ -388,10 +388,10 @@
   z-index: 55;
   border-radius: 25px;
   padding-left: 10px;
+  font-size: 16px;
   @include line-clamp();
   transform: translateX(-100vw);
   animation: contact-me 15s 0s 1 forwards;
-  transition: width 0.3s;
 
   &__text {
     font-size: 16px;

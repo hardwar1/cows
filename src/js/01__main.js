@@ -1,7 +1,6 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", function (event) {
-
+window.onload = () => {
   // мой мини jquery 
   function qOne(selector) {
     return document.querySelector(selector);
@@ -359,4 +358,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-});
+};
